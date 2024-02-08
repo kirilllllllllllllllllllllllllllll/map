@@ -39,7 +39,7 @@ def load_map(name, spn=0.003, index=False, mode='map'):
 
     map_params = {
         "ll": ",".join([toponym_longitude, toponym_lattitude]),
-        "spn": ",".join([delta, delta]),
+        "spn": ",".join([str(delta), str(delta)]),
         "l": mode,
         "pt": "{0},pm2dgl".format(org_point)
     }
