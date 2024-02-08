@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>972</width>
+    <width>1124</width>
     <height>496</height>
    </rect>
   </property>
@@ -42,7 +42,7 @@
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>47</width>
+      <width>31</width>
       <height>21</height>
      </rect>
     </property>
@@ -62,6 +62,9 @@
     <property name="text">
      <string>Схема</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">mode_group</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="skl_radio">
     <property name="geometry">
@@ -75,6 +78,9 @@
     <property name="text">
      <string>Гибрид</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">mode_group</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="sat_radio">
     <property name="geometry">
@@ -88,6 +94,9 @@
     <property name="text">
      <string>Спутник</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">mode_group</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="search_btn">
     <property name="geometry">
@@ -140,6 +149,9 @@
     <property name="text">
      <string>Да</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">index_group</string>
+    </attribute>
    </widget>
    <widget class="QRadioButton" name="no_index_radio">
     <property name="geometry">
@@ -153,13 +165,16 @@
     <property name="text">
      <string>Нет</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">index_group</string>
+    </attribute>
    </widget>
    <widget class="QLabel" name="pixmap_label">
     <property name="geometry">
      <rect>
       <x>510</x>
       <y>10</y>
-      <width>450</width>
+      <width>600</width>
       <height>450</height>
      </rect>
     </property>
@@ -172,4 +187,8 @@
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="mode_group"/>
+  <buttongroup name="index_group"/>
+ </buttongroups>
 </ui>
