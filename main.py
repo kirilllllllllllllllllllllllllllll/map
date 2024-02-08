@@ -10,29 +10,35 @@ class App(QMainWindow):
     def __init__(self):
         super(App, self).__init__()
         uic.loadUi('design.ui', self)
-        self.search_btn.clicked.connect(self.search_button_click)
+
+        self.start_spn = 1.0
+        self.start_index = False
+        self.start_mode = "map"
+
+        self.search_btn.clicked.connect(
+            lambda: self.search_button_click(self.get_user_search()))
         self.show()
 
-    # def event(self, e):
-    #     if e.type() == QEvent.KeyPress:
-    #         if e.key() == Qt.Key_PageUp:
-    #             pass
-    #         elif e.key() == Qt.Key_PageDown:
-    #             pass
-    #         elif e.key() == Qt.Key_Up:
-    #             pass
-    #         elif e.key() == Qt.Key_Left:
-    #             pass
-    #         elif e.key() == Qt.Key_Right:
-    #             pass
-    #         elif e.key() == Qt.Key_Down:
-    #             pass
+    def keyPressEvent(self, e):
+        if e.key() == Qt.Key_PageUp:
+            self.start_spn += 0.003
+            self.search_button_click(self.get_user_search())
+        elif e.key() == Qt.Key_PageDown:
+            pass
+        elif e.key() == Qt.Key_Up:
+            pass
+        elif e.key() == Qt.Key_Left:
+            pass
+        elif e.key() == Qt.Key_Right:
+            pass
+        elif e.key() == Qt.Key_Down:
+            pass
 
     def get_user_search(self):
         return self.to_search.text()
 
-    def search_button_click(self):
-        image, address = load_map(self.get_user_search())
+    def search_button_click(self, toponym):
+        image, address = load_map(toponym, self.start_spn, self.start_index, self.start_mode)
         img = QImage()
         img.loadFromData(image)
         self.pixmap_label.setPixmap(QPixmap.fromImage(img))
